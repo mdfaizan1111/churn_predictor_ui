@@ -2,11 +2,13 @@ from churn_custom_transformers import Winsorizer, TopNCategories, DistributionPr
 
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib
 
 # Load the saved model pipeline
-with open("model_pipeline2.pkl", "rb") as f:
-    model = pickle.load(f)
+#with open("model_pipeline2.pkl", "rb") as f:
+#    model = pickle.load(f)
+
+model = joblib.load("model_pipeline2.pkl")
 
 st.set_page_config(page_title="Churn Predictor", layout="centered")
 st.title("🧠 Customer Churn Prediction")
